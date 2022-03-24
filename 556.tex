@@ -10,4 +10,56 @@
 	\title{556 nm (green) laser setup}
 
 	\maketitle
+	
+	\begin{frame}{Introduction}
+	 \begin{columns}[T,onlytextwidth]
+	    \column{0.3\textwidth}
+	    \begin{alertblock}{Goal\\}
+		    Create three beams with individual frequency detuning and shutter control for MOT arms.
+		\end{alertblock}
+
+	    \column{0.6\textwidth}	    
+		\begin{figure}
+			\centering
+			\begin{tikzpicture}[
+				node distance=40pt,
+				block/.style={draw, very thick, align=center, minimum height=28pt, minimum width=42pt}
+			]
+				\node[block] (laser) {Laser};
+				\node[block, right=of laser] (setup) {Setup};
+				\node[block, right=of setup] (mot) {MOT};
+				\draw[-Latex] (laser) -- (setup) node[midway, above] {\SI{2.0}{\watt}};
+				\draw[-Latex] (setup) -- (mot) node[midway, above] {\SI{0.2}{\watt}};
+
+				\draw[-Latex] (setup.north) to[out=90, in=90] node[midway, above] {\SI{0.2}{\watt}} (mot.north);
+				\draw[-Latex] (setup.south) to[out=-90, in=-90] node[midway, below] {\SI{0.2}{\watt}} (mot.south);
+			\end{tikzpicture}
+			\caption{Block diagram of the \SI{556}{\nano\meter} setup.}
+		\end{figure}
+
+	  \end{columns}
+	\end{frame}
+	
+	% remarks:
+	% - telescopes were only necessary because problems with the fibers
+	% - photodiodes were not included
+	\begin{frame}{Possible optical free-space setup}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.1]{556-implementation.pdf}
+			\caption{Optical free-space setup of the \SI{556}{\nano\meter} setup by Clara (SQM lab).}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Discussion}
+		\begin{itemize}
+			\item Use commercial shutters instead of selfmade shutters?
+		\end{itemize}
+	\end{frame}
+	
+	\appendix
+	
+	\begin{frame}{Double pass (cat-eye) AOM}
+		
+	\end{frame}
 \end{document}

@@ -1,0 +1,46 @@
+\documentclass[aspectratio=169]{beamer}
+
+\input{preample}
+
+\date{\today}
+\author{Bodo Kaiser}
+\institute{Ryd-Yb Lab}
+
+\begin{document}
+	\title{556 nm (green) laser setup}
+
+	\maketitle
+	
+	\begin{frame}{Introduction}
+		\begin{figure}
+			\centering
+			\begin{tikzpicture}[
+				node distance=40pt,
+				block/.style={draw, very thick, align=center, minimum height=28pt, minimum width=42pt}
+			]
+				\node[block] (laser) {Laser};
+				\node[block, right=of laser] (setup) {Setup};
+				\node[block, right=of setup] (mot) {MOT};
+				\node[block, above=10pt of mot] (zl) {Zeeman\\slower};
+				\node[block, above=10pt of zl] (sl) {Slower};
+				\node[block, below=10pt of mot] (imag) {Imaging};
+			\end{tikzpicture}
+			\caption{Block diagram of the \SI{339}{\nano\meter} setup.}
+		\end{figure}
+	\end{frame}
+	
+	% remarks:
+	% - only used silica fused fiber and non-glued cubes
+	% - double pass AOMs not working because of polarization-dependence
+	
+	\begin{frame}{Discussion}
+		\begin{itemize}
+			\item Use commercial shutters instead of selfmade shutters?
+			\item Separate vertical and horizontal MOT and imaging?
+			\item Which laser frequency do we choose?
+			\item How do we cascade the AOMs?
+		\end{itemize}
+	\end{frame}
+	
+	%\appendix
+\end{document}
