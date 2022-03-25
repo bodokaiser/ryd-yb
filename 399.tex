@@ -7,38 +7,58 @@
 \institute{Ryd-Yb Lab}
 
 \begin{document}
-	\title{556 nm (green) laser setup}
+	\title{399 nm (blue) laser setup}
 
 	\maketitle
 	
 	\begin{frame}{Introduction}
-		\begin{figure}
-			\centering
-			\begin{tikzpicture}[
-				node distance=40pt,
-				block/.style={draw, very thick, align=center, minimum height=28pt, minimum width=42pt}
-			]
-				\node[block] (laser) {Laser};
-				\node[block, right=of laser] (setup) {Setup};
-				\node[block, right=of setup] (mot) {MOT};
-				\node[block, above=10pt of mot] (zl) {Zeeman\\slower};
-				\node[block, above=10pt of zl] (sl) {Slower};
-				\node[block, below=10pt of mot] (imag) {Imaging};
-			\end{tikzpicture}
-			\caption{Block diagram of the \SI{339}{\nano\meter} setup.}
-		\end{figure}
+		\begin{columns}[T,onlytextwidth]
+		    \column{0.6\textwidth}
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}[
+					node distance=40pt,
+					block/.style={draw, very thick, align=center, minimum height=28pt, minimum width=42pt}
+				]
+					\node[block] (laser) {Laser};
+					\node[block, right=of laser] (setup) {Setup};
+					\node[block, right=of setup] (mot) {MOT};
+					\node[block, above=10pt of mot] (zl) {Zeeman\\slower};
+					\node[block, above=10pt of zl] (sl) {Slower};
+					\node[block, below=10pt of mot] (imag) {Imaging};
+				\end{tikzpicture}
+				\caption{Block diagram of the \SI{399}{\nano\meter} setup.}
+			\end{figure}
+
+		    \column{0.4\textwidth}
+		    \begin{figure}
+		    	\begin{tikzpicture}
+		    		\draw[very thick] (0,0.5) node[left] {\SI{399}{\nano\meter}};
+		    		\draw[very thick] (0,1) rectangle ++(3,-1);
+		    		\node[right, align=center] at (3,0.5) {Slower,\\ MOT,\\ Imaging?};
+		    		\draw[very thick] (0,-3) -- ++(3,0) node[right, align=center] {Zeeman\\slower};
+		    		\draw[Latex-Latex, very thick] (1,-3) -- node[midway, right] {\SI{700}{\mega\hertz}?} ++(0,3);
+		    		\draw[Latex-Latex, very thick] (1,0) -- node[midway, right] {\SI{100}{\mega\hertz}?} ++(0,1);
+		    	\end{tikzpicture}
+		    	\caption{Laser frequencies}
+		    \end{figure}
+		\end{columns}
 	\end{frame}
 	
-	% remarks:
-	% - only used silica fused fiber and non-glued cubes
-	% - double pass AOMs not working because of polarization-dependence
+	\begin{frame}{Challenges}
+		\begin{itemize}
+			\item Components selection (fused silica, cubes without glue, ...)
+			\item Double-pass AOMs not practical because of strong polarization dependence
+			\item Frequency shift for Zeeman slower requires cascade of AOMs
+		\end{itemize}
+	\end{frame}
 	
 	\begin{frame}{Discussion}
 		\begin{itemize}
 			\item Use commercial shutters instead of selfmade shutters?
 			\item Separate vertical and horizontal MOT and imaging?
 			\item Which laser frequency do we choose?
-			\item How do we cascade the AOMs?
+			\item What are the bandwidth requirements for each of the outputs?
 		\end{itemize}
 	\end{frame}
 	
